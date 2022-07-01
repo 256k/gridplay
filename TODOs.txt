@@ -1,0 +1,6 @@
+1. the ability to save the table of glyphs into an external file to be recalled another time
+2. add a param to load said file
+3. create a animation function that will loop over the glyph table and draw it on the grid. i should be able to manually tell it at which frame number to reset back to zero.
+4. create different looping directions for the animation function (ex: normal, pingpong, reverse, one shot, random ...etc)
+5. clean up the norns screen visuals and have something more representative, even if it's just text describing
+6. NICE TO HAVE: try to create a conversion function that will take the glyphs from the table made from the grid and graphically represent them on the norns screen.
