@@ -2,17 +2,17 @@
 -- experimenting with animation 
 --            by 256k                 
 -- --------------------------------
--- K2: 
+-- K1: RESET ALL FRAMES 
 -- K3: 
 -- E2: 
 -- E3: manually move frames
 
 local g = grid.connect()
 local glyphs = {}
-local glyphindex = 1
+local glyphindex = 0
 
 function init() 
-  glyphs[glyphindex] = initializePage()
+  glyphs[glyphindex] = welcomeGlyph
   gridredraw(glyphs[glyphindex])
   updateScreen(glyphindex)
   redraw()
@@ -32,12 +32,14 @@ function redraw()
   screen.font_size(8)
   screen.clear()
   screen.move(1,10)
+  screen.text("Hi!")
+  screen.move(1,25)
   screen.text("Move E3:")
-  screen.move(1,20)
+  screen.move(1,35)
   screen.text("to advance between frames")
-  screen.move(1,45)
+  screen.move(1,50)
   screen.text("press grid buttons:")
-  screen.move(1,55)
+  screen.move(1,60)
   screen.text("to draw the frame")
   screen.update_default()
 end
@@ -75,7 +77,10 @@ end
 
 function g.key(x,y,z) -- define what happens if a grid key is pressed or released
   if z==1 then -- if a grid key is pressed down...
-    glyphs[glyphindex][y][x] = 1
+    if glyphs[glyphindex][y][x] == 0 then 
+    glyphs[glyphindex][y][x] = 1 else
+     glyphs[glyphindex][y][x] = 0
+     end
     gridredraw(glyphs[glyphindex])
   end
 end
@@ -94,16 +99,16 @@ function initializePage()
 }
 end
 
--- glyphs[1] ={
---   {1,1,1,1,1,0,0,0},
---   {1,1,1,1,1,0,0,0},
---   {0,0,0,1,1,0,0,0},
---   {0,0,0,1,1,0,0,0},
---   {0,0,0,1,1,0,0,0},
---   {0,0,0,1,1,0,0,0},
---   {0,1,1,1,1,1,1,0},
---   {0,1,1,1,1,1,1,0}
--- }
+welcomeGlyph ={
+  {1,0,0,1,0,0,0,0},
+  {1,0,0,1,0,0,1,0},
+  {1,0,0,1,0,0,0,0},
+  {1,0,0,1,0,0,1,0},
+  {1,1,1,1,0,0,1,0},
+  {1,0,0,1,0,0,1,0},
+  {1,0,0,1,0,0,1,0},
+  {1,0,0,1,0,0,1,0},
+}
 
 
 -- glyphs[2] ={
