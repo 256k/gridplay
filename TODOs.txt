@@ -4,3 +4,5 @@
 4. create different looping directions for the animation function (ex: normal, pingpong, reverse, one shot, random ...etc)
 5. clean up the norns screen visuals and have something more representative, even if it's just text describing
 6. NICE TO HAVE: try to create a conversion function that will take the glyphs from the table made from the grid and graphically represent them on the norns screen.
+7. add the ability to hold down a grid button and use E2 to control the brightness of that button
+
